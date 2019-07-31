@@ -128,10 +128,13 @@ app.get('/get_user/:user_name', function (req, res) {
 });
 app.get('/login/:user_name/:password', function (req, res) {
     Credential.findOne({user_name:req.params.user_name},function(err,response){
-        if(response.password==req.params.password){
+        if(response && (response.password==req.params.password)){
             res.send({msg:'success', user_name:response.user_name});
         }
-        else res.send('failure');
+        else {
+            
+            res.send({err:true, msg:'unf'});
+        }
     });
 });
 

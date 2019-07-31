@@ -23,7 +23,7 @@ class AddProduct extends Component {
             user_name: this.state.user_name,
             product_name: this.state.product_name,
         };
-
+        var that = this;
         $.ajax({
             type: "POST",
             url: "http://localhost:3001/create_product",
@@ -40,7 +40,7 @@ class AddProduct extends Component {
             }.bind(this),
             error:function(err){
                 alert('Product already exist!!!');
-                this.setState({product_name:''})
+                that.setState({product_name:''})
             },
             data: sendInfo
         });

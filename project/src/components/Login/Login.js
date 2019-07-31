@@ -32,6 +32,10 @@ constructor(props){
                     sessionStorage.setItem('user_name', data.user_name)
                    window.location.replace('/userpage');
                 }
+                if(data.msg == 'unf'){
+                  alert("User does not exist!!");
+                }
+
             },failure:function(){alert('login failed due to invallid credentials')
             }
         });
